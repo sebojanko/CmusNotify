@@ -1,11 +1,10 @@
 package main
 
 import (
-	_ "fmt"
-	"os/exec"
-	"strings"
 	"fmt"
 	"os"
+	"os/exec"
+	"strings"
 )
 
 func displayClipboard(data []string) {
