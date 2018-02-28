@@ -14,17 +14,22 @@ func displayClipboard(data []string) {
 }
 
 func main() {
-	status := os.Args[2]
-	artist := os.Args[6]
-	album := os.Args[8]
-	track := os.Args[12]
+	var argsMap = make(map[string]interface{})
 
-	if status == "playing" {
-		var cleData = make([]string, 3, 3)
-		cleData[0] = "<b>Artist:</b> " + artist
-		cleData[1] = "<b>Title:</b> " + track
-		cleData[2] = "<b>Album:</b> " + album
+	for i := 1; i < len(os.Args); i += 2 {
+		fmt.Println(os.Args[i])
+		fmt.Println(os.Args[i+1])
+		argsMap[os.Args[i]] = os.Args[i+1]
+		fmt.Println(argsMap)
+	}
 
-		displayClipboard(cleData)
+	if argsMap["status"] == "playing" {
+		var notificationData = make([]string, 3, 3)
+
+		notificationData[0] = "<b>Artist:</b> " + argsMap["artist"].(string)
+		notificationData[1] = "<b>Title:</b> " + argsMap["title"].(string)
+		notificationData[2] = "<b>Album:</b> " + argsMap["album"].(string)
+
+		displayClipboard(notificationData)
 	}
 }
