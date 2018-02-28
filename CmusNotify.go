@@ -1,3 +1,8 @@
+// Author: Sebastian Janko
+// Mail: janko.sebastian@gmail.com
+// Github link: https://github.com/sebojanko/CmusNotify
+// License: GNU GPL v3
+
 package main
 
 import (
