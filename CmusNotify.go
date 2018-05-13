@@ -14,7 +14,6 @@ import (
 
 func displayNotification(data []string) {
 	displayData := strings.Join(data, "\n")
-	fmt.Println(displayData)
 	exec.Command("notify-send", "-i", "/", "CmusNotify", displayData).Run()
 }
 
