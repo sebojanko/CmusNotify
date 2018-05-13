@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-func displayClipboard(data []string) {
+func displayNotification(data []string) {
 	displayData := strings.Join(data, "\n")
 	fmt.Println(displayData)
 	exec.Command("notify-send", "-i", "/", "CmusNotify", displayData).Run()
@@ -35,6 +35,6 @@ func main() {
 		notificationData[1] = "<b>Title:</b> " + argsMap["title"].(string)
 		notificationData[2] = "<b>Album:</b> " + argsMap["album"].(string)
 
-		displayClipboard(notificationData)
+		displayNotification(notificationData)
 	}
 }
